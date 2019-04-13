@@ -12,6 +12,8 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.logging.LogLevel;
+import io.netty.handler.logging.LoggingHandler;
 import io.netty.handler.timeout.IdleStateHandler;
 
 public class NettyServer {
@@ -23,7 +25,7 @@ public class NettyServer {
 	}
 	
 	private void run() throws Exception {
-		System.out.println("Server is Started");
+		System.out.println("[Server is Started]");
 		
 		EventLoopGroup bossGroup = new NioEventLoopGroup();
 		EventLoopGroup workerGroup = new NioEventLoopGroup();
@@ -40,6 +42,7 @@ public class NettyServer {
 					@Override
 					public void initChannel(SocketChannel ch) throws Exception {
 						ChannelPipeline pipeline = ch.pipeline();
+//						pipeline.addLast(new LoggingHandler(LogLevel.INFO));
 						pipeline.addLast("IdleStateHandler", new IdleStateHandler(6, 0, 0));
 		                pipeline.addLast("ProtocolDecoder", new ProtocolDecoder());
 		                pipeline.addLast("ProtocolEncoder", new ProtocolEncoder());

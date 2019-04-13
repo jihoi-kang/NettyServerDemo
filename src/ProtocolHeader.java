@@ -11,7 +11,7 @@ public class ProtocolHeader {
 	/** sign 0x01 ~ 0x03 */
 	public static final byte REQUEST            = 0x01; // client --> server
 	public static final byte RESPONSE           = 0x02; // server --> client
-	public static final byte NOTICE             = 0x03; // server --> client
+	public static final byte CALLBACK             = 0x03; // server --> client
 
     /** type 0x11 ~ */
 	public static final byte CONN				= 0x11;
