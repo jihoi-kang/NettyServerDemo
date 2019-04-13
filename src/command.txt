@@ -1,0 +1,9 @@
+###
+/netty/src 폴더에서 컴파일하고 실행하는 커멘드
+
+# 컴파일
+javac -cp .:../libs/gson-2.8.2.jar:../libs/netty-all-4.1.17.Final.jar:../libs/json-20170516.jar -d ../bin/ ChatLogs.java MessageHolder.java NettyServer.java NettyServerHandler.java ProtocolDecoder.java ProtocolEncoder.java ProtocolHeader.java Serializer.java
+
+
+# 파일 실행
+java -cp .:../libs/gson-2.8.2.jar:../libs/netty-all-4.1.17.Final.jar:../libs/json-20170516.jar:../bin server.NettyServer server.ChatLogs server.MessageHolder server.NettyServerHandler server.ProtocolDecoder server.ProtocolEncoder server.ProtocolHeader server.Serializer
